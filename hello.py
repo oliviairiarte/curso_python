@@ -1,7 +1,7 @@
 
 print("Hello world!")
 
-#TIPOS DE VARIABLES --------------------------------------------------------
+# 1.TIPOS DE VARIABLES --------------------------------------------------------
 age = 25 
 a = b = c = 10
 price = 9.9
@@ -16,7 +16,7 @@ This is a
 multi-line comment
 """
 
-# OPERADORES LOGICOS ------------------------------------------------------
+# 1.2. OPERADORES LOGICOS ------------------------------------------------------
 a = 10
 b = 3
 
@@ -31,7 +31,7 @@ exponentiation = a ** b # 1000
 equal = a == b          # False
 not_equal = a != b      # True
 
-# CONTROL STRUCTURES ---------------------------------------------
+# 2. CONTROL STRUCTURES ---------------------------------------------
 
 # If Elif Else
 """
@@ -56,7 +56,7 @@ while counter < 5:
     print(counter)
     counter += 1
 
-# LOOP CONTROL
+# 3. LOOP CONTROL
 
 # Break
 counter = 0
@@ -74,7 +74,7 @@ for i in range(10):
 
 print("-" * 20)
 
-# DATA STRUCTURES -----------------------------------------------------------
+# 4. DATA STRUCTURES -----------------------------------------------------------
 
 # List --------------------------------------------------------------------
 fruits = ["apple", "banana", "orange"]
@@ -186,7 +186,7 @@ fruits.clear()
 print(fruits)  # Prints set()
 print("-"*40)
 
-# FUNCTIONS -------------------------------------------------------------------
+# 5. FUNCTIONS -------------------------------------------------------------------
 def greeting():
     print("Hello, world!")
 greeting()  # Prints "Hello, world!"
@@ -239,3 +239,157 @@ def variable_sum(*numbers):
 
 print(variable_sum(1, 2, 3))  # Prints 6
     
+# 6. Exceptions (mistakes)-----------------------------------------------------------------------
+"""
+try, bloque que se intenta ejecutar y que puede generar un error (excepción).
+
+except, Bloqueque se ejecuta SOLO si ocurre una excepción en el bloque try.
+
+else, se ejecuta SOLO si el bloque try finaliza con éxito (sin lanzar ninguna excepción).
+
+finally, se ejecuta SIEMPRE, sin importar si hubo error o no, tareas de limpieza (cerrar archivos...)
+
+customized.
+"""
+
+# Example 
+
+def realizar_operacion():
+    # Inicializa variables para evitar NameError en 'finally'
+    resultado = None
+
+    try:
+        print("--- Bloque TRY: Intentando realizar la operación ---")
+        
+        dividendo = int(input("Introduce el dividendo (número de arriba): "))
+        divisor = int(input("Introduce el divisor (número de abajo): "))
+        
+        # Código que puede fallar (ZeroDivisionError)
+        resultado = dividendo / divisor
+        
+    except ValueError:
+        # 1. Se ejecuta si el usuario introduce texto en lugar de números.
+        print("\n!!! EXCEPTION: Tipo de dato inválido. Debes introducir un número entero.")
+        
+    except ZeroDivisionError:
+        # 2. Se ejecuta si el divisor es 0.
+        print("\n!!! EXCEPTION: División por cero no permitida.")
+        
+    except Exception as e:
+        # 3. Captura cualquier otro error inesperado.
+        print(f"\n!!! EXCEPTION: Ocurrió un error inesperado: {e}")
+        
+    else:
+        # Se ejecuta SOLO si el TRY tuvo éxito (no hubo errores).
+        print("\n--- Bloque ELSE: Éxito en la operación ---")
+        print(f"La división de {dividendo} / {divisor} es: {resultado}")
+        
+    finally:
+        # Se ejecuta SIEMPRE, haya o no habido un error.
+        print("\n--- Bloque FINALLY: Proceso de limpieza o finalización ---")
+        print("La operación ha terminado.")
+        print("-" * 30)
+
+realizar_operacion() 
+print()
+
+# Customized exception
+# Ejemplo DE 'raise'
+
+def verificar_edad(edad):
+    if edad < 18:
+        # Lanza una excepción personalizada si la regla falla
+        raise ValueError("La edad mínima requerida es 18 años.") 
+    return "Edad verificada correctamente."
+
+edad_ingresada = 16
+try:
+    # Se intenta verificar la edad (con riesgo de fallar)
+    resultado = verificar_edad(edad_ingresada)
+    print(resultado)
+
+except ValueError as e:
+    # Captura el error lanzado por 'raise'
+    print(f"!!! ERROR DETECTADO: {e}") 
+
+finally:
+    print("--- Proceso finalizado. ---")
+
+# 7. INPUTS AND OUTPUTS ----------------------------------------------------------------------
+# User data input: The input() function always returns a string
+
+name = input("Enter your name: ")
+print("Hello, " + name + "!")
+
+# For integers or floats
+age = int(input("Enter your age: "))
+
+# Data output
+name = "Juan"
+age = 25
+print(f"Hello, my name is {name} and I am {age} years old.")
+
+# 7.2. Reading and writing files -------------------------------------------------------------------------------
+"""
+Modos de apertura de archivos
+- r (read): solo podes leer, puntero al inicio
+- a (append,anexar): se abre para escribir AL FINAL (a+ deja leer)
+- w (write): se borra todo lo q habia y podes escribir desde el inicio
+- w+ (write and read): se borra todo, podes escribir al inicio y leer todo
+"""
+
+# Read a file
+file = open("data.txt", "r") #read mode: r
+content = file.read()
+print(content)
+file.close()
+
+# Writing a file
+file = open("data.txt", "w+") # writing mode: w. If it does not exist it´ll create a new one
+file.write("Hello, world!")
+content2 = file.read()
+print(content)
+file.close()
+
+with open("data.txt", "r") as file:  # lo cierra luego automaticamente
+    content = file.read()
+    print(content)
+
+# 8. Importing and creating modules------------------------------------------------------------------------
+# Importing Python modules
+
+import math
+result = math.sqrt(25)
+print(result)  # Prints 5.0
+
+# Functions and classes of standard modules
+""" 
+- math: provides sqrt, sin, cos
+- random: provides random() and randomint(range)
+- datetime: provides .now, .time, .date
+"""
+import random
+import datetime
+
+random_number = random.randint(1, 10)
+print(random_number)  # Prints a random integer between 1 and 10
+current_date = datetime.datetime.now()
+print(current_date)  # Prints the current date and time
+
+# 8.1. Creating my modules ---------------------------------------------------------------------------
+# I created a new file with my new and own module
+
+import my_module
+
+my_module.greet("Juan")  # Prints "Hello, Juan!"
+result = my_module.calculate_sum(5, 3)
+print(result)  # Prints 8
+
+# 9. Packages ----------------------------------------------------------------------------------
+# organise related modules into a hierarchical structure, avoid name conflicts.
+
+# Create and use packages
+
+from my_package import module1, module2
+print("Este numero mas dos es:", module1.function1(2))
+print("La suma de estos numeros es: ", module2.function2(3,3))
