@@ -279,6 +279,9 @@ def realizar_operacion():
         # 3. Captura cualquier otro error inesperado.
         print(f"\n!!! EXCEPTION: Ocurrió un error inesperado: {e}")
         
+    except IndexError:
+        print("Error: Faltan números para realizar la operación.")
+        
     else:
         # Se ejecuta SOLO si el TRY tuvo éxito (no hubo errores).
         print("\n--- Bloque ELSE: Éxito en la operación ---")
