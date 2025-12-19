@@ -10,6 +10,13 @@ message = 'Hello, world!'
 is_adult = True
 has_discount = False 
 
+# FUNCIONES BUILT-IN
+numero= round(12.3456,2)
+print(numero)
+
+result_all= all([234,"kssksks",[234,456]])  #devuelve si todos son true
+print (result_all)                          #para uno ser TRUE --> <> de 0, false y none
+
 # This is a single-line comment
 """
 This is a
@@ -49,6 +56,20 @@ fruits = ["apple", "banana", "orange"]
 for fruit in fruits:
     print(fruit)
 
+# For en listas
+numeros= [1,2,3,4]
+for num in enumerate(numeros): #imprime tuplas, indice + valor
+    print(num)
+
+# For en diccios
+dicc = {
+    "nom": "oli",
+    "ape": 222
+}
+for datos in dicc.items():
+    key = datos[0]
+    value = datos[1]  #datos es TUPLA
+
 # While
 counter = 0
 
@@ -78,6 +99,8 @@ print("-" * 20)
 
 # List --------------------------------------------------------------------
 fruits = ["apple", "banana", "orange"]
+list_v2 = list([3,4,5])
+
 
 print(fruits[0])  # Prints "apple"
 print(fruits[1])  # Prints "banana"
@@ -118,6 +141,8 @@ print(squares)  # Prints [4, 16]
 
 # Tuple (inmutable and ordered structure) -------------------------------------------
 point = (3, 4)
+tupla_v2 = tuple((2,3,4))
+
 print(point[0])  # Prints 3
 print(point[1])  # Prints 4
 
@@ -135,6 +160,9 @@ print (len(my_tuple))  # Output: 6 / Turple length
 # mutable and unordered structure that stores key-value pairs. 
 
 person = {"name": "Juan", "age": 25, "city": "Madrid"}
+dict_version2 = dict(nombre="oli", ape=22)
+
+diccio = dict.fromkeys(["nombre", "ape", "edad"])
 
 print(person["name"])  # Prints "Juan"
 print(person["age"])    # Prints 25

@@ -6,6 +6,7 @@ lista = list(["hola", 2, 34])
 # - len: cuenta cant de elementos de una lista
 aux = len(lista)
 
+
 # - append: agrega elem al final
 lista.append("chau")
 
@@ -33,3 +34,4 @@ lista.sort()
 # - reverse: invierte todos los elem
 lista.reverse() #incluso con cualquier dato
 
+lista.index(5)  #busca si esta en algun lado devuelve la pos
