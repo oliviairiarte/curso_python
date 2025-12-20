@@ -232,6 +232,12 @@ print(result)  # Prints 7
 # Anonymus function (Lambda)
 square = lambda x: x ** 2
 print(square(5))  # Prints 25
+
+# Example with Lambda function
+numeros = [2,3,4,5,6]
+pares = filter(lambda numero: numero%2 == 0, numeros)
+print(list(pares))
+ 
  
 # Variable scope (alcance)
 def function():
