@@ -1,0 +1,14 @@
+Datos :
+
+Nombre: a
+Apellido: ka
+------------
+Nombre: b
+Apellido: ke
+------------
+Nombre: c
+Apellido: ki
+------------
+Nombre: d
+Apellido: ko
+------------

@@ -381,13 +381,19 @@ content = file.read()
 print(content)
 file.close()
 
-# Writing a file
+# Writing a file NOT EFFICIENT
 file = open("data.txt", "w+") # writing mode: w. If it does not exist it´ll create a new one
 file.write("Hello, world!")
 content2 = file.read()
 print(content)
 file.close()
 
+# leer una(s) linea(s) #NOT EFFICIENT
+file = open("data.txt")
+linea = file.readline("cantChar") #o linessss
+print(linea)
+
+#EFFICIENT
 with open("data.txt", "r") as file:  # lo cierra luego automaticamente
     content = file.read()
     print(content)
